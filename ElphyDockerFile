@@ -1,0 +1,49 @@
+PS C:\Program Files\Docker\Docker> docker run hello-worl
+Unable to find image 'hello-worl:latest' locally
+C:\Program Files\Docker\Docker\Resources\bin\docker.exe: Error response from daemon: pull access denied for hello-worl, repository does not exist or may require 'docker login'.
+See 'C:\Program Files\Docker\Docker\Resources\bin\docker.exe run --help'.
+PS C:\Program Files\Docker\Docker> docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+
+PS C:\Program Files\Docker\Docker> docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+fd48a4e5ec81        alpine              "/bin/sh"           2 minutes ago       Up 2 minutes                            jovial_kilby
+PS C:\Program Files\Docker\Docker> docker ps-a
+docker: 'ps-a' is not a docker command.
+See 'docker --help'
+PS C:\Program Files\Docker\Docker> docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+15c10ee3d94c        hello-world         "/hello"                 53 seconds ago      Exited (0) 50 seconds ago                       ecstatic_lalande
+fd48a4e5ec81        alpine              "/bin/sh"                3 minutes ago       Up 3 minutes                                    jovial_kilby
+c7eaa89c0e32        alpine              "/bin/sh"                13 minutes ago      Exited (0) 13 minutes ago                       thirsty_kowalevski
+843c06a57111        alpine              "echo 'hello from al…"   14 minutes ago      Exited (0) 14 minutes ago                       sleepy_mcnulty
+7317b8e63d86        alpine              "ls -l"                  25 minutes ago      Exited (0) 25 minutes ago                       friendly_bartik
+b64b39a64bf8        hello-world         "/hello"                 36 minutes ago      Exited (0) 36 minutes ago                       suspicious_galileo
+248fe4f9ef80        hello-world         "/hello"                 37 minutes ago      Exited (0) 37 minutes ago                       dazzling_lichterman
+a107fb022028        hello-world         "/hello"                 37 minutes ago      Exited (0) 37 minutes ago                       flamboyant_yonath
+PS C:\Program Files\Docker\Docker> docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+fd48a4e5ec81        alpine              "/bin/sh"           11 minutes ago      Up 11 minutes                           jovial_kilby
+PS C:\Program Files\Docker\Docker>docker pull continuumio/miniconda3
+PS C:\Program Files\Docker\Docker>docker run -i -t continuumio/miniconda3 /bin/bash
+PS C:\Program Files\Docker\Docker>docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
