@@ -7,5 +7,8 @@ LABEL org.label-schema.schema-version="1.0" \
     org.label-schema.vendor="CentOS" \
     org.label-schema.license="GPLv2" \
     org.label-schema.build-date="20181006"
+    
+RUN echo "i686" > /etc/yum/vars/arch && \
+    echo "i386" > /etc/yum/vars/basearch
 
 CMD ["/bin/bash"]
