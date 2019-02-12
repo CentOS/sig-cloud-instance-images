@@ -12,6 +12,10 @@ LABEL name="CentOS Base Image" \
 # add aliyun repository
 COPY CentOS-Base.repo /etc/yum.repos.d/
 
+# update and clean all
+RUN yum -y update \
+    && yum clean all
+
 # set timezone
 ENV TZ=Asia/Shanghai
 
