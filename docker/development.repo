@@ -1,0 +1,17 @@
+[baseos]
+name=UNSIGNED CentOS Stream 9 BaseOS
+baseurl=https://composes.stream.centos.org/development/latest-CentOS-Stream/compose/BaseOS/$basearch/os
+gpgcheck=0
+enabled=1
+
+[appstream]
+name=UNSIGNED CentOS Stream 9 AppStream
+baseurl=https://composes.stream.centos.org/development/latest-CentOS-Stream/compose/AppStream/$basearch/os
+gpgcheck=0
+enabled=1
+
+[crb]
+name=UNSIGNED CentOS Stream 9 CRB
+baseurl=https://composes.stream.centos.org/development/latest-CentOS-Stream/compose/CRB/$basearch/os
+gpgcheck=0
+enabled=0
