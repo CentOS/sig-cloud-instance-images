@@ -14,10 +14,8 @@ LABEL io.k8s.display-name="CentOS Stream 8"
 LABEL io.openshift.expose-services=""
 LABEL io.openshift.tags="base centos centos-stream"
 
-
-RUN rpm -ivh --replacefiles http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-stream-release-8.4-1.el8.noarch.rpm \
-                            http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-stream-repos-8-2.el8.noarch.rpm \
-                            http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-gpg-keys-8-2.el8.noarch.rpm \
+RUN dnf download --repofrompath=centos,http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/ --disablerepo=* --enablerepo=centos centos-stream-release centos-stream-repos centos-gpg-keys
+RUN rpm -ivh --nodeps --replacefiles *.rpm && rm *.rpm \
     && rpm -e redhat-release \
     && dnf --setopt=tsflags=nodocs --setopt=install_weak_deps=false -y distro-sync \
     && dnf remove -y subscription-manager dnf-plugin-subscription-manager\
